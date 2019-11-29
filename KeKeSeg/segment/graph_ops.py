@@ -74,7 +74,7 @@ def dijkstra(graph):
         neighbors = find_neighbors(node_x, edges)
         for node_y in neighbors:
             edge_weight = edges.get((node_x, node_y), {}).get("freq", 0)
-            edge_score = (node_y-node_x) * math.log(edge_weight+1)
+            edge_score = ((node_y-node_x)**2) * math.log(edge_weight+1)
             dist_new = distances.get(node_x, 0) + edge_score
 
             if dist_new > distances.get(node_y, 0):
